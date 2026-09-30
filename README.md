@@ -33,7 +33,7 @@ O sistema tem como objetivo automatizar o processo de leitura de peso e geraçã
 
 ## 📂 Estrutura do Projeto
 
-```text
+
 ├── index.html            # Interface principal do totem
 ├── style.css             # Estilos e formatação visual
 ├── script_balanca.js     # Scripts de lógica de tela e leitura da Web Serial API
@@ -72,7 +72,7 @@ O principal desafio resolvido pelo sistema é unificar em um único fluxo de aut
 
 ## 🏗️ Arquitetura do Sistema
 
-```text
+
                ┌────────────────────────┐
                │  Balança Elgin DP30CK  │
                └───────────┬────────────┘
