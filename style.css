@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    color: #333;
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.parada-txt {
+    font-size: 1.2rem; 
+    color: #999;
+    margin-bottom: 10px;
+}
+.back-btn {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px 25px; 
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;   
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.main-content {
+    width: 100%;
+    max-width: 850px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.screen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Reduzido de 35px para aproximar os elementos verticalmente */
+    text-align: center;
+}
+
+.main-title { 
+    font-size: 2.2rem; /* Mantido o tamanho ideal para o título principal */
+    font-weight: 700; 
+    color: #000; 
+}
+
+/* --- LEGENDA DE ORIENTAÇÃO (SOLICITAÇÃO: MAIOR E VERDE) --- */
+.main-subtitle { 
+    font-size: 1.5rem !important;   /* Aumentado expressivamente para o cliente ver bem */
+    font-weight: 700 !important;    /* Em negrito para dar destaque de instrução */
+    color: #27ae60 !important;      /* Verde destacado padrão do sistema */
+    margin-top: -5px; 
+}
+
+.options-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Reduzido de 18px para os 3 retângulos subirem e caberem inteiros */
+}
+
+/* --- CONFIGURAÇÃO DOS RETÂNGULOS (SOLICITAÇÃO: CABER INTEIROS) --- */
+.option-card {
+    background-color: #ffffff;
+    border-radius: 20px; 
+    padding: 18px 35px;  /* Reduzido o padding vertical de 30px para 18px (achata o card) */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, border-color 0.2s;
+    border: 3px solid transparent; 
+}
+.option-card:hover {
+    transform: translateY(-3px);
+    border-color: #fbe369;
+}
+.card-main-content { display: flex; align-items: center; gap: 35px; }
+
+/* --- SEÇÃO DOS ÍCONES DAS OPÇÕES (REDUZIDO PARA COMPACTAR O CARD) --- */
+.option-img {
+    width: 70px;          /* Reduzido de 100px para o card não estufar na tela */
+    height: 70px;         /* Reduzido de 100px */
+    background-color: #f3f3f3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;    
+    color: #999;
+}
+
+/* Redução proporcional das imagens/SVGs de Marmita e KG dentro do círculo */
+.option-img img, .option-img svg {
+    width: 45px !important;  /* Ajustado de 60px para casar com o círculo de 70px */
+    height: 45px !important;
+    object-fit: contain;
+}
+
+/* --- TEXTOS INTERNOS DOS CONTAINERS (SOLICITAÇÃO: AUMENTAR) --- */
+.option-info { text-align: left; }
+.option-info h2 { 
+    font-size: 1.8rem !important; /* Aumentado de 1.2rem - Nome da opção gigante */
+    font-weight: 800; 
+    color: #000; 
+}
+.option-info p { 
+    font-size: 1.3rem !important; /* Aumentado de 1.0rem - Preço bem visível */
+    font-weight: 600;
+    color: #555;                  /* Um pouco mais escuro para aumentar o contraste */
+}
+
+.item-status-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: left;
+}
+.item-details h2 { font-size: 1.8rem; font-weight: 600; }
+.item-details p { font-size: 1.2rem; color: #888; }
+.m-auto { max-width: 650px; margin: 0 auto; }
+
+/* O mostrador do peso na tela */
+.big-weight { 
+    font-size: 8rem; 
+    font-weight: 700; 
+    color: #000; 
+    letter-spacing: -3px; 
+    margin: 15px 0; 
+}
+.status-title { font-size: 2.5rem; font-weight: 700; color: #000; }
+.status-subtitle { font-size: 1.5rem; color: #777; }
+
+.printing-badge {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 18px 35px; 
+    border-radius: 35px;
+    font-size: 1.4rem;   
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    margin-top: 20px;
+}
+
+footer { width: 100%; max-width: 1200px; display: flex; justify-content: space-between; align-items: center; }
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: #b22222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+
+/* Tela de Ajuda em Tela Cheia (Fundo Bege do Figma) */
+.fullscreen-help {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fdf8e2;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 40px;
+    border: 12px solid #fbe369;
+}
+.help-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+}
+.help-content h1 { font-size: 5rem; font-weight: 800; color: #111; }
+.help-content p { font-size: 2rem; color: #555; max-width: 800px; font-weight: 500; }
+.help-btn-close {
+    background-color: #fbe369;
+    border: none;
+    padding: 20px 45px;
+    border-radius: 14px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.footer-help { width: 100%; display: flex; justify-content: flex-start; }
+
+.hidden { display: none !important; }
+
+/* Aviso de tara descontada */
+.tara-notice {
+    font-size: 1.5rem; 
+    color: #28a745; 
+    font-weight: 700;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+/* Nova estilização para a imagem da logo */
+.logo-totem {
+    height: 90px;      
+    width: auto;        
+    object-fit: contain;
+}
+
+/* Ajuste sutil para a logo dentro da tela de ajuda */
+.footer-help .logo-totem {
+    height: 110px;      
+}
+
+/* --- ESTILIZAÇÃO DO VALOR TOTAL FINAL --- */
+#txt-recibo-valor {
+    font-size: 7rem;          
+    font-weight: 800;         
+    color: #27ae60;           
+    letter-spacing: -2px;     
+    margin-top: -10px;        
+    display: block;           
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.05); 
+}
+
+/* Ajuste sutil para o texto "Total a pagar" que fica acima dele */
+.screen.tela-final h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}

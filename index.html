@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parada 153 - Totem de Autoatendimento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--div id="tela-ajuda-global" class="fullscreen-help hidden">
+        <div class="help-content">
+            <h1>Por favor aguarde...</h1>
+            <p>Um de nossos atendentes esta vindo lhe auxiliar</p>
+            <button id="btn-encerrar-ajuda" class="help-btn-close">Encerrar ajuda</button>
+        </div>
+        <div class="footer-help">
+            <img src="images/logo_parada.png" alt="Logo Parada 153" class="logo-totem">
+        </div>
+    </div-->
+
+    <header>
+        <button class="back-btn hidden" id="btn-voltar">&lt; Voltar</button>
+        <div class="parada-txt">Bem vindo à Parada 153</div>
+    </header>
+
+    <main class="main-content">
+
+        <div id="tela-selecao" class="screen">
+            <h1 class="main-title">Escolha o tipo de pesagem</h1>
+            <span class="main-subtitle">Toque em uma opção para começar</span>
+
+            <div class="options-container">
+                <div class="option-card" data-action="pesar" data-opcao="Almoço Kg" data-preco="69.99">
+                    <div class="card-main-content">
+                        <div class="option-img"><img src="images/kg.png" alt="Almoço Kg"></div>
+                        <div class="option-info">
+                            <h2>Almoço Kg</h2>
+                            <p>R$ 69,99/Kg</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-card" data-action="submenu-livre">
+                    <div class="card-main-content">
+                        <div class="option-img"><img src="images/Chuleta.png" alt="Almoço Livre"></div>
+                        <div class="option-info">
+                            <h2>Almoço Livre</h2>
+                            <p>a partir de R$ 39,00 / pessoa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-card" data-action="pesar" data-opcao="Marmita" data-preco="45.00">
+                    <div class="card-main-content">
+                        <div class="option-img"><img src="images/Marmita.png" alt="Marmita"></div>
+                        <div class="option-info">
+                            <h2>Marmita</h2>
+                            <p>R$ 45,00/Kg</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tela-livre-opcoes" class="screen hidden">
+            <h1 class="main-title">Escolha sua opção de almoço livre</h1>
+            <span class="main-subtitle">Toque em uma opção para escolher</span>
+
+            <div class="options-container">
+                <div class="option-card" data-action="final-fixo" data-opcao="Apenas Buffet" data-preco="39.00">
+                    <div class="card-main-content">
+                        <div class="option-img"><img src="images/buffet.png" alt="Apenas Buffet"></div>
+                        <div class="option-info">
+                            <h2>Apenas Buffet</h2>
+                            <p>R$ 39,00 / Pessoa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-card" data-action="final-fixo" data-opcao="Buffet + Chuleta" data-preco="45.00">
+                    <div class="card-main-content">
+                        <div class="option-img"><img src="images/Chuleta.png" alt="Buffet + Chuleta"></div>
+                        <div class="option-info">
+                            <h2>Buffet + Chuleta</h2>
+                            <p>R$ 45,00 / Pessoa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tela-pesagem" class="screen hidden">
+            <div id="card-item-topo" class="item-status-card">
+                <div id="img-pesagem-topo" class="option-img"></div>
+                <div class="item-details">
+                    <h2 id="txt-card-titulo">Almoço Kg</h2>
+                    <p id="txt-card-sub">Selecionado</p>
+                </div>
+            </div>
+
+            <div class="area-status-dinamica">
+                <div id="display-peso-gigante" class="big-weight hidden">0,000 Kg</div>
+                <div id="tara-informativo" class="tara-notice hidden">* Desconto de 500g do prato já aplicado</div>
+                
+                <div id="status-titulo" class="status-title">Coloque o prato na balança</div>
+                <div id="status-subtitulo" class="status-subtitle">Aguarde até a pesagem terminar</div>
+            </div>
+        </div>
+
+        <div id="tela-final" class="screen hidden">
+            <div id="card-recibo" class="item-status-card m-auto">
+                <div id="img-recibo-final" class="option-img"></div>
+                <div class="item-details">
+                    <h2 id="txt-recibo-valor">R$ 0,00</h2>
+                    <p id="txt-recibo-detalhe">0,000 Kg • Almoço Kg</p>
+                </div>
+            </div>
+
+            <div class="area-status-dinamica">
+                <div class="status-title">Obrigado!</div>
+                <div class="status-subtitle">Em breve um garçom irá à sua mesa para coletar seu pedido de bebidas</div>
+            </div>
+
+            <div class="printing-badge">
+                <div class="icon-print">🖨️</div> <span id="txt-impressao">Imprimindo Comprovante...</span>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <img src="images/logo_parada.png" alt="Logo Parada 153" class="logo-totem">
+        <!--button class="help-btn" id="btn-ajuda">
+            <span class="help-icon">❔</span> Preciso de ajuda
+        </button-->
+    </footer>
+
+    <script src="script_balanca.js"></script>
+</body>
+</html>
