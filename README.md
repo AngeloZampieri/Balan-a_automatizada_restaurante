@@ -46,7 +46,7 @@ Para um estabelecimento comercial, dependência de internet para pesagem e emiss
 * **Baixa Latência:** A execução local elimina o *overhead* de requisições HTTP para a nuvem, garantindo resposta instantânea na pesagem e impressão.
 
 ### 2. Otimização de Memória e Processamento
-Para garantir estabilidade 24/7 em hardware restrito, a aplicação foi otimizada para consumir o mínimo de memória RAM e CPU:
+Para garantir estabilidade em hardware restrito, a aplicação foi otimizada para consumir o mínimo de memória RAM e CPU:
 
 * **Arquitetura Vanilla no Frontend:** Sem *frameworks* pesados (React, Vue, Angular). A interface é construída em **HTML5, CSS3 e JavaScript puro**, mantendo o consumo de memória do Chromium em níveis baixíssimos.
 * **Comunicação Direta via Web Serial API:** A leitura do peso ocorre diretamente no navegador através da porta serial, sem a necessidade de *daemons* ou middlewares pesados rodando em segundo plano.
