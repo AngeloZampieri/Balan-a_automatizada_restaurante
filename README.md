@@ -32,14 +32,14 @@ O sistema tem como objetivo automatizar o processo de leitura de peso e geraçã
 ---
 
 ## 📂 Estrutura do Projeto
-
+```text
 
 ├── index.html            # Interface principal do totem
 ├── style.css             # Estilos e formatação visual
 ├── script_balanca.js     # Scripts de lógica de tela e leitura da Web Serial API
 ├── impressora.py         # Script Python para integração e comandos de impressão local
 └── README.md             # Documentação do projeto
-
+```text
 ---
 
 ## 📋 Visão Geral & Regras de Negócio
