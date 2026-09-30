@@ -1,4 +1,4 @@
-# 🏷️ Totem de Pesagem e Autatendimento (Raspberry Pi + Escala)
+# 🏷️ Totem de Pesagem e Autoatendimento (Raspberry Pi + Escala)
 
 Sistema web embarcado para automação de totem de pesagem e autoatendimento em restaurantes. O projeto integra hardware local (balança checkout Elgin via comunicação serial) a uma interface web em tempo real e scripts em Python rodando em modo Kiosk em um Raspberry Pi.
 
