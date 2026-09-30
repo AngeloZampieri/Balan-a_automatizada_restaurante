@@ -31,6 +31,31 @@ O sistema tem como objetivo automatizar o processo de leitura de peso e geraçã
 
 ---
 
+---
+
+---
+
+## ⚡ Desafios Técnicos: Resiliência & Otimização de Performance
+
+Projetar uma solução para rodar em um ambiente embarcado como o **Raspberry Pi** no ecossistema de um restaurante exigiu foco em dois pilares: **disponibilidade contínua (operação offline)** e **baixo consumo de recursos do sistema**.
+
+### 1. Operação 100% Local (Offline-First)
+Para um estabelecimento comercial, dependência de internet para pesagem e emissão de comanda representa risco de interrupção nas vendas. 
+* **Zero Dependência Externa:** O sistema roda inteiramente em rede local (`localhost`), utilizando recursos locais do Raspberry Pi.
+* **Autonomia na Queda de Conexão:** Mesmo sem sinal de internet ou roteador offline, a comunicação Web Serial com a balança Elgin DP30CK e o script de impressão continuam funcionando sem qualquer degradação.
+* **Baixa Latência:** A execução local elimina o *overhead* de requisições HTTP para a nuvem, garantindo resposta instantânea na pesagem e impressão.
+
+### 2. Otimização de Memória e Processamento
+Para garantir estabilidade 24/7 em hardware restrito, a aplicação foi otimizada para consumir o mínimo de memória RAM e CPU:
+
+* **Arquitetura Vanilla no Frontend:** Sem *frameworks* pesados (React, Vue, Angular). A interface é construída em **HTML5, CSS3 e JavaScript puro**, mantendo o consumo de memória do Chromium em níveis baixíssimos.
+* **Comunicação Direta via Web Serial API:** A leitura do peso ocorre diretamente no navegador através da porta serial, sem a necessidade de *daemons* ou middlewares pesados rodando em segundo plano.
+* **Prevenção de Memory Leaks:** Gerenciamento rigoroso do ciclo de vida dos eventos e da limpeza de buffers da porta serial durante a leitura contínua de peso.
+* **Script de Impressão Assíncrono:** O `impressora.py` em Flask/Python foi desenvolvido de forma minimalista, consumindo recursos do sistema operacional apenas no exato momento da emissão da comanda.
+* **Chromium Kiosk Enxuto:** Execução do navegador em modo *kiosk* configurado com flags específicas para desabilitar caches e processos de background desnecessários.
+
+---
+
 ## 📂 Estrutura do Projeto
 ```text
 
@@ -39,7 +64,7 @@ O sistema tem como objetivo automatizar o processo de leitura de peso e geraçã
 ├── script_balanca.js     # Scripts de lógica de tela e leitura da Web Serial API
 ├── impressora.py         # Script Python para integração e comandos de impressão local
 └── README.md             # Documentação do projeto
-```text
+
 ---
 
 ## 📋 Visão Geral & Regras de Negócio
@@ -81,23 +106,23 @@ O principal desafio resolvido pelo sistema é unificar em um único fluxo de aut
  ┌──────────────────────────────────────────────────┐
  │               Raspberry Pi (OS)                  │
  │                                                  │
- │   Chromium (Kiosk) ──► Interface Web (index.html) │
- │                             │                    │
- │                             ▼                    │
- │                     Web Serial API               │
- │                             │                    │
- │                             ▼                    │
- │                     Lógica de Negócio            │
- │            (Peso / Livre / Marmita P-M-G)        │
- │                             │                    │
- │                             ▼                    │
- │                     python3 impressora.py        │
- └─────────────────────────────┬────────────────────┘
-                               │ (USB / Serial)
-                               ▼
-                   ┌────────────────────────┐
-                   │   Impressora Térmica   │
-                   └────────────────────────┘
+ │   Chromium (Kiosk) ──► Interface Web (index.html)│
+ │                           │                      │
+ │                           ▼                      │
+ │                   Web Serial API                 │
+ │                           │                      │
+ │                           ▼                      │
+ │                 Lógica de Negócio                │
+ │           (Peso / Livre / Marmita P-M-G)         │
+ │                           │                      │
+ │                           ▼                      │
+ │                 python3 impressora.py            │
+ └ ───────────────────────────┬──────────────────── ┘
+                              │ (USB / Serial)
+                              ▼
+                  ┌────────────────────────┐
+                  │   Impressora Térmica   │
+                  └────────────────────────┘
 
 🔒 Licença e Direitos de Uso
 Todos os direitos reservados (All Rights Reserved).
